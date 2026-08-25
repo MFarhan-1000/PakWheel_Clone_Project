@@ -22,7 +22,7 @@ import NavBarRoutes from "./Routes/NavBarRoutes"
 
 // Pakoffers
 import CarTransfer from './Pages/PakOffers/CarTransfer'
-import CarServices from './Pages/PakOffers/Carservices'
+import CarServices from './Pages/PakOffers/CarServices'
 import CarsInspection from "./Pages/PakOffers/CarsInspection"
 import Carinsurance from './Pages/PakOffers/Carsinsurance'
 import CarAution from "./Pages/PakOffers/CarAution"

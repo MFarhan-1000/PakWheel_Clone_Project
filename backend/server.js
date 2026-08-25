@@ -6,7 +6,7 @@ const cookieParser = require("cookie-parser")
 app.use(express.json())
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: process.env.Front_Port,
   credentials: true,
 }));
 
@@ -52,7 +52,7 @@ app.use("/car", carRoute)
 // Listen Port and DB 
 DB().then(()=>{
     console.log("Db connected successfully")
-    app.listen(PORT,()=>{
+    app.listen(PORT || 3000,()=>{
     console.log(`Port is Working `)
 })
 }).catch((err)=>{
