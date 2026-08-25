@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// Images import
+import playstore from "../assets/1492616988-12-play-store-google-android-game-service-marketplace_83394.webp" 
+import appstore from "../assets/Appstore.jpg"
+import AppGallary from "../assets/app.png"
+
+
+
 const Footer = () => {
   return (
     <footer className="bg-[#232933] text-[#a1a7b3] text-sm font-sans">
@@ -28,7 +35,7 @@ const Footer = () => {
 {/* First icons  */}
             <Link className="bg-black text-white hover:bg-gray-900 border border-gray-700 rounded-md px-4 py-2 inline-flex items-center gap-3">
               <img className="w-7 h-7 object-contain "
-                src="/src/assets/1492616988-12-play-store-google-android-game-service-marketplace_83394.webp" alt="Google Play"/>
+                src={playstore} alt="Google Play"/>
               <div className="text-left ">
                 <div className="text-[10px] uppercase text-gray-400 font-medium tracking-wide"> Get it on</div>
                 <div className="text-sm font-semibold text-white mt-0.5">Google Play</div>
@@ -38,7 +45,7 @@ const Footer = () => {
 {/* second icons  */}
 <Link className="bg-black text-white hover:bg-gray-900 border border-gray-700 rounded-md px-4 py-2 inline-flex items-center gap-3">
               <img className="w-7 h-7 object-contain "
-                src="/src/assets/Appstore.jpg" alt="Google Play"/>
+                src={appstore} alt="App store"/>
               <div className="text-left ">
                 <div className="text-[10px] uppercase text-gray-400 font-medium tracking-wide"> Download on the</div>
                 <div className="text-sm font-semibold text-white mt-0.5">App Store</div>
@@ -48,7 +55,7 @@ const Footer = () => {
 {/* Third icon */}
 <Link className="bg-black text-white hover:bg-gray-900 border border-gray-700 rounded-md px-4 py-2 inline-flex items-center gap-3">
               <img className="w-7 h-7 object-contain "
-                src="/src/assets/app.png" alt="Google Play"/>
+                src={AppGallary} alt="Google Play"/>
               <div className="text-left ">
                 <div className="text-[10px] uppercase text-gray-400 font-medium tracking-wide"> Explore it on</div>
                 <div className="text-sm font-semibold text-white mt-0.5">AppGallery</div>

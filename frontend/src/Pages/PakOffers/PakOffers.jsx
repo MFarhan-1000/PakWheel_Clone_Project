@@ -1,6 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+// images importing
+import sellimage from "../../assets/download.jpg"
+import download07 from "../../assets/download (7).jpg"
+import download06 from "../../assets/download (6).jpg"
+import download02 from "../../assets/download (2).jpg"
+import download03 from "../../assets/download (3).jpg"
+import download04 from "../../assets/download (4).jpg"
+
 function PakOffers() {
   return (
     <div>
@@ -16,7 +24,7 @@ function PakOffers() {
             {/* First */}
             
                 <Link to={"/pakoffers/sellcar"} className='group flex w-full m-4 sm:flex-[40%]  border border-gray-400 rounded-sm p-6 mb-4'>
-                <img className='h-20 w-30 pr-4' src="/src/assets/download.jpg" alt="Sell pics" />
+                <img className='h-20 w-30 pr-4' src={sellimage} alt="Sell pics" />
                 <div>
                     <h3 className='text-blue-900 group-hover:text-blue-700 font-semibold'>PakWheels </h3>
                     <h4 className='text-gray-500 font-semibold'>SELL IT FOR ME</h4>
@@ -26,7 +34,7 @@ function PakOffers() {
 
             {/* Second  Offer*/}
                 <Link to={"/pakoffers/carsaution"} className='group mb-4 flex w-full m-4 sm:flex-[40%] border border-gray-400 rounded-sm p-6 lg:ml-4'>
-                <img className='h-20 w-30 pr-4' src="/src/assets/download (7).jpg" alt="" />
+                <img className='h-20 w-30 pr-4' src={download07} alt="car image" />
                 <div>
                     <h3 className='text-blue-900 group-hover:text-blue-700  font-semibold'>PakWheels </h3>
                     <h4 className='text-gray-500 font-semibold'>AUCTION SHEET VERIFICATION</h4>
@@ -35,7 +43,7 @@ function PakOffers() {
 
             {/*Third  Offer  */}
                 <Link to={"/pakoffers/carinspection"} className='group mb-4 flex w-full m-4 sm:flex-[40%] border border-gray-400 rounded-sm p-6 '>
-                <img className='h-20 w-30 pr-4' src="/src/assets/download (6).jpg" alt="" />
+                <img className='h-20 w-30 pr-4' src={download06} alt="image of car" />
                 <div>
                     <h3 className='text-blue-900 group-hover:text-blue-700  font-semibold'>PakWheels </h3>
                     <h4 className='text-gray-500 font-semibold'>CAR INSPECTION</h4>
@@ -44,7 +52,7 @@ function PakOffers() {
 
             {/* Fourth offer */}
                 <Link to={"/pakoffers/carservice"} className='group mb-4 flex w-full m-4 sm:flex-[40%] border border-gray-400 rounded-sm p-6 ml-4'>
-                <img className='h-20 w-30 pr-4' src="/src/assets/download (2).jpg" alt="" />
+                <img className='h-20 w-30 pr-4' src={download02} alt="car image" />
                 <div>
                     <h3 className='text-blue-900  group-hover:text-blue-700 font-semibold'>PakWheels </h3>
                     <h4 className='text-gray-500 font-semibold'>SERVICE CENTER</h4>
@@ -53,7 +61,7 @@ function PakOffers() {
 
             {/* Fifth Offer*/}
                 <Link to={"/pakoffers/insurance"} className='group mb-4 flex w-full m-4 sm:flex-[40%] border border-gray-400 rounded-sm p-6 '>
-                <img className='h-20 w-30 pr-4' src="/src/assets/download (3).jpg" alt="" />
+                <img className='h-20 w-30 pr-4' src={download03} alt="car Image" />
                 <div>
                     <h3 className='text-blue-900  group-hover:text-blue-700 font-semibold'>PakWheels </h3>
                     <h4 className='text-gray-500 font-semibold'>CAR INSURANCE</h4>
@@ -62,7 +70,7 @@ function PakOffers() {
 
             {/* Sixth Offer */}
                 <Link to={"/pakoffers/cartransfer"} className='group mb-4 flex w-full m-4 sm:flex-[40%] border border-gray-400 rounded-sm p-6 ml-4'>
-                <img className='h-20 w-30 pr-4' src="/src/assets/download (4).jpg" alt="" />
+                <img className='h-20 w-30 pr-4' src={download04} alt="car image ownership" />
                 <div>
                     <h3 className='text-blue-900  group-hover:text-blue-700 font-semibold'>PakWheels </h3>
                     <h4 className='text-gray-500 font-semibold'>OWNERSHIP TRANSFER</h4>

@@ -4,6 +4,8 @@ import AuthModal from "./AuthModel";
 
 // images import 
 import logo from "../assets/new-pw-logo-white-618259573a0604d3ae593b46213e2ab390bcc33336d4bdc3486405c7351ded13.svg"
+import arrow from "../assets/arrow_icon.svg"
+
 
 function NavBar() {
   const navigate = useNavigate();
@@ -512,7 +514,7 @@ function NavBar() {
             Find More
             <img
               className="w-3 h-5"
-              src="/src/assets/arrow_icon.svg"
+              src={arrow}
               alt="Arrow Icon"
             />
           </div>
