@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthModal from "./AuthModel";
 
+// images import 
+import logo from "../assets/new-pw-logo-white-618259573a0604d3ae593b46213e2ab390bcc33336d4bdc3486405c7351ded13.svg"
+
 function NavBar() {
   const navigate = useNavigate();
 
@@ -176,7 +179,7 @@ function NavBar() {
           {/* Logo - left side */}
           <img
             className="h-8 w-32 sm:h-10 sm:w-40"
-            src="/src/assets/new-pw-logo-white-618259573a0604d3ae593b46213e2ab390bcc33336d4bdc3486405c7351ded13.svg"
+            src={logo}
             alt="Logo-Navbar"
           />
 
