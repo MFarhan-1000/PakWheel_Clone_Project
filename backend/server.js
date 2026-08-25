@@ -6,7 +6,7 @@ const cookieParser = require("cookie-parser")
 app.use(express.json())
 
 app.use(cors({
-  origin: process.env.Front_Port,
+  origin: process.env.FRONTEND_PORT,
   credentials: true,
 }));
 
