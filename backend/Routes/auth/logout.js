@@ -6,8 +6,8 @@ const router = express.Router()
 router.post("/", (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
-    sameSite: "lax",
-    secure: false
+    sameSite: "none",
+    secure: true
   });
 
   return res.status(200).json({ message: "Logged out successfully" });

@@ -14,7 +14,7 @@ router.get("/", async (req,res)=>{
         if(token){
             const user = jwt.verify(token, process.env.JSONSCREATEKEY);
             req.user = user;
-            return res.status(200).send({message: "User token is avaliable",user })
+            return res.status(200).send(user)
         }
     }catch(err){
         console.log(err)

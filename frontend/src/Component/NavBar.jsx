@@ -43,7 +43,6 @@ function NavBar() {
   // Using api to check user login check
   useEffect(() => {
     const checklogin = async () => {
-
         try {
         const result = await fetch(
           `${API_URL}/api/me`, {
@@ -53,7 +52,7 @@ function NavBar() {
           const data = await result.json();
           console.log(data);
           localStorage.setItem("user", JSON.stringify(data));
-          setUser(result);
+          setUser(data);
         } else {
           setUser(null);
           localStorage.clear();
