@@ -2,11 +2,13 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import ListingGrid from '../../Component/ListingGrid';
 
+// API_URL
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function PriceUsedCars() {
   const location = useLocation();
   
-  const endpoint = `http://localhost:3000/car/getcar${location.search}`;
+  const endpoint = `${API_URL}/car/getcar${location.search}`;
 
   return (
     <div>

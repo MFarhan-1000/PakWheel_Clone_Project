@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 
-export default function PostAdSection({ apiEndpoint = "http://localhost:3000/car/create" }) {
+// API_URL
+const API_URL = import.meta.env.VITE_API_URL;
+
+export default function PostAdSection({ apiEndpoint = `${API_URL}/car/create` }) {
   const [formData, setFormData] = useState({
     title: "",
     make: "",

@@ -1,9 +1,11 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+// URL Import
+const API_URL = import.meta.env.VITE_API_URL
+
 // Important things 
 import Home from './Component/Home'
-
 
 import SellCarSection from './Pages/SellCarSection/SellCarSection'
 import SellBike from './Pages/SellBikeSection/SellBike'
@@ -59,7 +61,7 @@ function App() {
         <Route path='/oldcars' 
                 element={<Oldcars 
                 title='Old Cars' 
-                endpoint="http://localhost:3000/car/getcar?catagory=used" />}></Route>
+                endpoint={`${API_URL}/car/getcar?catagory=used`} />}></Route>
 
 {/* Search bar  Endhere*/}
 

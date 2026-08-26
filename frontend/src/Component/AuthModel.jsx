@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 
 // Base URL for the auth API — change this in one place when you deploy
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 
 function AuthModal({ isOpen, authmode = 'signin', onClose }) {
@@ -42,6 +42,8 @@ function AuthModal({ isOpen, authmode = 'signin', onClose }) {
     setCurrentUser(getStoredUser());
   }, [authmode, isOpen]);
 
+
+  // If not opened then return null
   if (!isOpen) return null;
 
   // Helper to store session and close modal

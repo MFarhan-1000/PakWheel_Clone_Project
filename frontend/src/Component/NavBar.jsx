@@ -6,6 +6,8 @@ import AuthModal from "./AuthModel";
 import logo from "../assets/new-pw-logo-white-618259573a0604d3ae593b46213e2ab390bcc33336d4bdc3486405c7351ded13.svg"
 import arrow from "../assets/arrow_icon.svg"
 
+// import enviromental variable
+const API_URL = import.meta.env.VITE_API_URL;
 
 function NavBar() {
   const navigate = useNavigate();
@@ -41,8 +43,10 @@ function NavBar() {
   // Using api to check user login check
   useEffect(() => {
     const checklogin = async () => {
-      try {
-        const result = await fetch("http://localhost:3000/api/me", {
+
+        try {
+        const result = await fetch(
+          `${API_URL}/api/me`, {
           credentials: "include",
         });
         if (result.ok) {
@@ -65,7 +69,7 @@ function NavBar() {
   // Logout route
   const handleLogout = async () => {
     try {
-      await fetch("http://localhost:3000/logout", {
+      await fetch(`${API_URL}/logout`, {
         method: "POST",
         credentials: "include",
       });
@@ -166,6 +170,7 @@ function NavBar() {
             )}
           </div>
         </div>
+        {/* Signin and Signup things */}
         {/* Auth here the signin and up popup */}
         <AuthModal
           isOpen={isAuthOpen}

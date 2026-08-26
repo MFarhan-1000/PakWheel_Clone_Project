@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+// Import API_URL
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function ListingGrid({
   title = "Popular Cars",
   endpoint,
@@ -88,7 +91,7 @@ export default function ListingGrid({
 
     try {
       const response = await fetch(
-        `http://localhost:3000/car/delete/${carId}`,
+        `${API_URL}/car/delete/${carId}`,
         {
           method: "DELETE",
           credentials: "include",
@@ -154,7 +157,7 @@ export default function ListingGrid({
 
     try {
       const response = await fetch(
-        `http://localhost:3000/car/edit/${editingCar.id}`,
+        `${API_URL}/car/edit/${editingCar.id}`,
         {
           method: "PATCH",
           credentials: "include",

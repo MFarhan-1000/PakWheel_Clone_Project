@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 
-export default function PostAdSection({ apiEndpoint = "http://localhost:3000/car/create" }) {
+// Import API_URL
+const API_URL = import.meta.env.VITE_API_URL;
+
+export default function PostAdSection() {
+
+  const apiEndpoint = `${API_URL}/car/create` 
+
   const [formData, setFormData] = useState({
     title: "",
     make: "",
@@ -140,8 +146,8 @@ export default function PostAdSection({ apiEndpoint = "http://localhost:3000/car
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex-1">
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Vehicle Type
                   </label>
@@ -156,7 +162,7 @@ export default function PostAdSection({ apiEndpoint = "http://localhost:3000/car
                   </select>
                 </div>
 <br />
-                <div>
+                <div className="flex-1">
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     City <span className="text-red-500">*</span>
                   </label>
@@ -192,8 +198,8 @@ export default function PostAdSection({ apiEndpoint = "http://localhost:3000/car
           {/* Section 2: Vehicle Specifications */}
           <div>
             <h3 className="text-md font-semibold text-blue-900 mb-3">2. Specifications</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex-1">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Make (Brand) <span className="text-red-500">*</span>
                 </label>
@@ -208,7 +214,7 @@ export default function PostAdSection({ apiEndpoint = "http://localhost:3000/car
                 />
               </div>
 
-              <div>
+              <div className="flex-1">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Model <span className="text-red-500">*</span>
                 </label>
@@ -223,7 +229,7 @@ export default function PostAdSection({ apiEndpoint = "http://localhost:3000/car
                 />
               </div>
 
-              <div>
+              <div className="flex-1">
                 <label className="block text-sm font-medium text-gray-700 mb-1">Year</label>
                 <input
                   type="number"
@@ -240,8 +246,8 @@ export default function PostAdSection({ apiEndpoint = "http://localhost:3000/car
           {/* Section 3: Pricing & Media */}
           <div>
             <h3 className="text-md font-semibold text-blue-900 mb-3">3. Price & Image</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex-1">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Price (PKR) <span className="text-red-500">*</span>
                 </label>
@@ -256,7 +262,7 @@ export default function PostAdSection({ apiEndpoint = "http://localhost:3000/car
                 />
               </div>
 
-              <div>
+              <div className="flex-1">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Vehicle Image <span className="text-red-500">*</span>
                 </label>

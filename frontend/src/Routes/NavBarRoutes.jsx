@@ -1,5 +1,7 @@
 import React from 'react'
 
+// Imort URl
+const API_URL = import.meta.env.VITE_API_URL;
 
 // For user and admin
 import ListingGrid from "../Component/ListingGrid"
@@ -14,19 +16,19 @@ function NavBarRoutes() {
 <Routes>
         {/* Get My Listings */}
 
-        <Route path='/mylisting' element={<AdminAndOwner title='My Details' endpoint={"http://localhost:3000/car/mylistings"}/>}></Route>        
+        <Route path='/mylisting' element={<AdminAndOwner title='My Details' endpoint={`${API_URL}/car/mylistings`}/>}></Route>        
         
         {/* Route to get Used Cars */}
-                <Route path='/usedcars' element={<ListingGrid  title="Popular Used Cars" endpoint="http://localhost:3000/car/getcar?catagory=Used" />} ></Route>
+                <Route path='/usedcars' element={<ListingGrid  title="Popular Used Cars" endpoint={`${API_URL}/car/getcar?catagory=Used`} />} ></Route>
         
         {/*Route to get new cars  */}
-                <Route path='/newcars' element={<ListingGrid title='Popular New Cars' endpoint={"http://localhost:3000/car/getcar?catagory=New"}/>}></Route>
+                <Route path='/newcars' element={<ListingGrid title='Popular New Cars' endpoint={`${API_URL}/car/getcar?catagory=New`}/>}></Route>
         
         {/* Route to get Bikes */}
-                <Route path='/bike' element={<ListingGrid title='Popular Bikes' endpoint={"http://localhost:3000/car/getcar?vehicalType=bike"}/>}></Route>
+                <Route path='/bike' element={<ListingGrid title='Popular Bikes' endpoint={`${API_URL}/car/getcar?vehicalType=bike`}/>}></Route>
         
         {/* Route to get More All Cars */}
-                <Route path='/more' element={<ListingGrid title='All Cars And Bikes' endpoint={"http://localhost:3000/car/getcar"}/>}></Route>
+                <Route path='/more' element={<ListingGrid title='All Cars And Bikes' endpoint={`${API_URL}/car/getcar`}/>}></Route>
 
    
 </Routes>      
