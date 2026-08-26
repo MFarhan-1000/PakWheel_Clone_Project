@@ -59,24 +59,6 @@ const createCar = async (req, res) => {
   }
 };
 
-// ///////////////////
-// getting car from DB
-// ///////////////////
-// const getCar = async (req, res) => {
-//   try {
-//     const cars = await Car.find();
-
-//     if (cars.length === 0) {
-//       return res.status(404).send({ message: "No Cars Found" });
-//     }
-
-//     res.status(200).send(cars);
-//   } catch (err) {
-//     console.log(err);
-//     return res.status(500).send({ message: "Internal Server Error" });
-//   }
-// };
-
 const getCar = async (req,res)=>{
   try{
     const {keyword, minPrice, make,maxPrice,city,vehicalType ,catagory,page=1,limit=6,} = req.query;
