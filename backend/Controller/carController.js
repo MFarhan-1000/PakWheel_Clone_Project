@@ -119,6 +119,7 @@ const getCar = async (req,res)=>{
     const totalCar = await Car.countDocuments(query)
     
     const Cars = await Car.find(query)
+    .populate("salesPerson", "name phone")
     .sort({createdAt: -1})
     .skip(skip)
     .limit(limitNum)

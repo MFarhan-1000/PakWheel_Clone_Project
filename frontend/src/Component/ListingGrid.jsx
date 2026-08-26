@@ -6,7 +6,7 @@ export default function ListingGrid({ title = "Popular Cars", endpoint, items })
   const [error, setError] = useState(null);
 
   useEffect(() => {
-
+ 
     if (!endpoint) return;
     // Create an controller to abort the fetch request if component unmounts
     const controller = new AbortController();
@@ -20,6 +20,7 @@ export default function ListingGrid({ title = "Popular Cars", endpoint, items })
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
         const json = await response.json();
+        console.log(json);
 
         // Format backend response
         const formattedCars = (json.Cars || []).map((car) => ({
@@ -53,8 +54,6 @@ export default function ListingGrid({ title = "Popular Cars", endpoint, items })
 
   // Fallback to empty array to avoid null property access
   const listings = data || [];
-  // const User = JSON.parse(localStorage.getItem("user"))
-  //  this is wrong fix it later
 
   return (
     <section className="bg-gray-50 py-10 px-4">
@@ -86,7 +85,6 @@ export default function ListingGrid({ title = "Popular Cars", endpoint, items })
               <p className="text-green-600 font-medium text-sm">{item.price}</p>
 
               {/* <h4>Contact NOW: {User.phone}</h4> */}
-
 
             </div>
           ))}
