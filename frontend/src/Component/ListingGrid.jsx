@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function ListingGrid({
   title = "Popular Cars",
@@ -39,12 +39,15 @@ export default function ListingGrid({
             `${car.make || ""} ${car.model || ""}`.trim() ||
             "Untitled Car",
           price:
-            typeof car.price === "number" ?
-              `PKR ${car.price.toLocaleString()}`
-            : car.price,
+            typeof car.price === "number"
+              ? `PKR ${car.price.toLocaleString()}`
+              : car.price,
           image: car.image?.url || "https://placehold.co/400x300?text=No+Image",
           name: car.salesPerson?.name || "N/A",
           phone: car.salesPerson?.phone || null,
+          make: car.make,
+          city: car.city,
+          year: car.year,
         }));
 
         setData(formattedCars);
@@ -85,12 +88,7 @@ export default function ListingGrid({
           {listings.map((item) => (
             <div
               key={item.id}
-              className="
-                bg-white border border-gray-200 rounded-lg p-4
-                flex flex-col items-center text-center
-                hover:shadow-lg transition-shadow duration-200 cursor-pointer
-                w-full sm:w-[47%] md:w-[30%] lg:w-[23%]
-              "
+              className="bg-white border border-gray-200 rounded-lg p-4 flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-200 cursor-pointer w-full sm:w-[47%] md:w-[30%] lg:w-[23%]"
             >
               <img
                 src={item.image}
@@ -109,9 +107,28 @@ export default function ListingGrid({
                 {item.price}
               </p>
 
-              <div className="text-xs text-gray-500 border-t border-gray-100 pt-2 w-full">
-                <p className="font-medium text-gray-800">{item.name}</p>
-                <p className="text-gray-800 text-md"> Contact Now: {item.phone}</p>
+              <div className="space-y-1 text-sm text-slate-900 mb-3">
+                <p>
+                  <span className="text-slate-900 font-bold">Make : </span>
+                  <span className="font-semibold">{item.make}</span>
+                </p>
+                <p>
+                  <span className="text-slate-900 font-bold">City : </span>
+                  <span className="font-semibold">{item.city}</span>
+                </p>
+                <p>
+                  <span className="text-slate-900 font-bold">Year : </span>
+                  <span className="font-semibold">{item.year}</span>
+                </p>
+              </div>
+
+              <div className="text-gray-500 border-t border-gray-100 pt-2 w-full">
+                <p className="font-bold text-gray-900">
+                  Sales Person: {item.name}
+                </p>
+                <p className="text-gray-900">
+                  Contact Now: {item.phone}
+                </p>
               </div>
             </div>
           ))}
