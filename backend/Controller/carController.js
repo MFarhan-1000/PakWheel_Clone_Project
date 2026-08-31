@@ -1,10 +1,8 @@
 const express = require("express");
 
-const User = require("../Model/User");
 const Car = require("../Model/Car");
 
 const cloudinary = require("cloudinary").v2;
-const cookies = require("cookie-parser");
 const joi = require("joi");
 
 const carValidation = joi.object({

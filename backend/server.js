@@ -13,16 +13,10 @@ app.use(cors({
 
 app.use(cookieParser())
 
-
 require("dotenv").config()
 const PORT = process.env.PORT
 
-
 const DB = require("./Config/DB")
-// DB Schema here
-const User = require("./Model/User");
-const Car = require("./Model/Car");
-
 
 // Routes require here
 const signupRoute = require("./Routes/auth/signup")
@@ -31,6 +25,9 @@ const logoutRoute = require("./Routes/auth/logout")
 
 // check user login and logout
 const authLogincheckRoute = require("./Routes/authCheck")
+
+// check admin
+const admin = require("./Routes/admin")
 
 // Car Route import 
 const carRoute = require("./Routes/Car/CarListing")
@@ -43,6 +40,9 @@ app.use("/logout", logoutRoute)
 
 // Auth User Login Check
 app.use("/api/me", authLogincheckRoute);
+
+// Admin check
+app.use("/isadmin", admin)
 
 // car route here
 app.use("/car", carRoute)

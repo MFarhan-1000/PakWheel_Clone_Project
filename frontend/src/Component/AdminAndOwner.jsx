@@ -1,413 +1,156 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-// Import API_URL
 const API_URL = import.meta.env.VITE_API_URL;
 
-export default function ListingGrid({
-  title = "Popular Cars",
-  endpoint,
-  items,
-}) {
-  const [data, setData] = useState(items || []);
-  const [loading, setLoading] = useState(!!endpoint && !items);
-  const [error, setError] = useState(null);
+export default function ListingGrid({ title = "Popular Cars", endpoint }) {
+  const [cars, setCars] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [deletingCarId, setDeletingCarId] = useState(null);
+  const [isAdmin, setIsAdmin] = useState(false);
 
-  const [editingCar, setEditingCar] = useState(null);
-  const [saving, setSaving] = useState(false);
-  const [deletingId, setDeletingId] = useState(null);
+  // Check if admin or not
+  useEffect(() => {
+    fetch(`${API_URL}/isadmin`, { credentials: "include" })
+      .then((res) => setIsAdmin(res.ok))
+      .catch(() => setIsAdmin(false));
+  }, []);
 
-  const fetchCars = async () => {
-    if (!endpoint) return;
-
-    setLoading(true);
-    setError(null);
+  // Fetch the cars from database
+  async function loadCars() {
+    setIsLoading(true);
+    setErrorMessage("");
 
     try {
-      const response = await fetch(endpoint, {
-        method: "GET",
-        credentials: "include",
-      });
-
-      if (!response.ok) {
+      const response = await fetch(endpoint, { credentials: "include" });
+      if (!response.ok)
         throw new Error(`HTTP error! Status: ${response.status}`);
-      }
 
       const json = await response.json();
+      const rawCars = Array.isArray(json) ? json : json.Cars || json.cars || [];
 
-      const cars = Array.isArray(json)
-        ? json
-        : json.Cars || json.cars || [];
-
-      const formattedCars = cars.map((car) => ({
+      const formattedCars = rawCars.map((car) => ({
         ...car,
-
         id: car._id || car.id,
-
         name:
           car.title ||
           `${car.make || ""} ${car.model || ""}`.trim() ||
           "Untitled Car",
-
         price:
-          typeof car.price === "number"
-            ? `PKR ${car.price.toLocaleString()}`
-            : car.price,
-
+          typeof car.price === "number" ?
+            `PKR ${car.price.toLocaleString()}`
+          : car.price,
         image:
-          Array.isArray(car.images) && car.images.length > 0
-            ? car.images[0]?.url
-            : car.image?.url ||
-              "https://placehold.co/400x300?text=No+Image",
+          (car.images && car.images[0]?.url) ||
+          car.image?.url ||
+          "https://placehold.co/400x300?text=No+Image",
       }));
 
-      setData(formattedCars);
+      setCars(formattedCars);
     } catch (err) {
       console.error("Fetch error:", err);
-
-      if (err.name !== "AbortError") {
-        setError(err.message || "Failed to load listings.");
-      }
+      setErrorMessage(err.message || "Failed to load listings.");
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
-  };
+  }
 
   useEffect(() => {
-    fetchCars();
-  }, [endpoint, items]);
+    loadCars();
+  }, [endpoint]);
 
-  // =========================
-  // DELETE CAR
-  // =========================
-  const handleDelete = async (carId) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this car listing?"
+  // Delete a car
+  async function handleDelete(carId) {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this car listing?",
     );
+    if (!confirmed) return;
 
-    if (!confirmDelete) return;
-
-    setDeletingId(carId);
-    setError(null);
+    setDeletingCarId(carId);
+    setErrorMessage("");
 
     try {
-      const response = await fetch(
-        `${API_URL}/car/delete/${carId}`,
-        {
-          method: "DELETE",
-          credentials: "include",
-        }
-      );
+      const response = await fetch(`${API_URL}/car/delete/${carId}`, {
+        method: "DELETE",
+        credentials: "include",
+      });
 
-      const result = await response.json();
+      if (!response.ok)
+        throw new Error(`Failed to delete car (${response.status})`);
 
-      if (!response.ok) {
-        throw new Error(
-          result.message || `Failed to delete car (${response.status})`
-        );
-      }
-
-      // Remove deleted car from UI
-      setData((prev) => prev.filter((car) => car.id !== carId));
+      // for refresh of cars
+      await loadCars();
     } catch (err) {
       console.error("Delete error:", err);
-      setError(err.message || "Failed to delete listing.");
+      setErrorMessage("Failed to delete listing.");
     } finally {
-      setDeletingId(null);
+      setDeletingCarId(null);
     }
-  };
-
-  // =========================
-  // START EDITING
-  // =========================
-  const handleEdit = (car) => {
-    setEditingCar({
-      ...car,
-      title: car.title || "",
-      make: car.make || "",
-      model: car.model || "",
-      price: car.price || "",
-      year: car.year || "",
-      vehicalType: car.vehicalType || "",
-      city: car.city || "",
-    });
-  };
-
-  // =========================
-  // HANDLE EDIT INPUT
-  // =========================
-  const handleEditChange = (e) => {
-    const { name, value } = e.target;
-
-    setEditingCar((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  // =========================
-  // UPDATE CAR
-  // =========================
-  const handleUpdate = async (e) => {
-    e.preventDefault();
-
-    if (!editingCar) return;
-
-    setSaving(true);
-    setError(null);
-
-    try {
-      const response = await fetch(
-        `${API_URL}/car/edit/${editingCar.id}`,
-        {
-          method: "PATCH",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            title: editingCar.title,
-            make: editingCar.make,
-            model: editingCar.model,
-            price: editingCar.price,
-            year: editingCar.year,
-            vehicalType: editingCar.vehicalType,
-            city: editingCar.city,
-          }),
-        }
-      );
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(
-          result.message || `Failed to update car (${response.status})`
-        );
-      }
-
-      // Update car in the current UI
-      setData((prev) =>
-        prev.map((car) => {
-          if (car.id !== editingCar.id) return car;
-
-          return {
-            ...car,
-            ...result,
-
-            id: result._id || editingCar.id,
-
-            name:
-              result.title ||
-              `${result.make || ""} ${result.model || ""}`.trim() ||
-              "Untitled Car",
-
-            price:
-              typeof result.price === "number"
-                ? `PKR ${result.price.toLocaleString()}`
-                : result.price,
-          };
-        })
-      );
-
-      setEditingCar(null);
-    } catch (err) {
-      console.error("Update error:", err);
-      setError(err.message || "Failed to update listing.");
-    } finally {
-      setSaving(false);
-    }
-  };
-
-  const listings = data || [];
+  }
 
   return (
     <section className="bg-gray-50 py-10 px-4 min-h-screen">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">
-          {title}
-        </h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">{title}</h2>
 
-        {loading && (
-          <p className="text-gray-500 text-sm mb-4">
-            Loading listings...
-          </p>
-        )}
-
-        {error && (
-          <div className="bg-red-100 text-red-700 p-3 rounded-lg mb-5">
-            {error}
-          </div>
-        )}
-
-        {!loading && !error && listings.length === 0 && (
-          <p className="text-gray-500 text-sm">
-            No listings found.
-          </p>
-        )}
-
-        {/* =========================
-            EDIT FORM
-        ========================= */}
-        {editingCar && (
-          <div className="bg-white border border-gray-200 rounded-xl p-6 mb-8 shadow-sm">
-            <div className="flex justify-between items-center mb-5">
-              <h3 className="text-xl font-bold text-gray-800">
-                Edit Car
-              </h3>
-
-              <button
-                type="button"
-                onClick={() => setEditingCar(null)}
-                className="text-gray-500 hover:text-gray-800 text-xl"
-              >
-                ✕
-              </button>
+        {isAdmin && (
+          <div className="mb-6 flex items-center justify-between gap-4 rounded-xl bg-slate-900 px-5 py-4 text-white">
+            <div className="flex items-center gap-3">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10">
+                <svg
+                  className="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3Z" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-sm font-semibold leading-tight">
+                  Admin access
+                </p>
+                <p className="text-sm text-slate-300 leading-tight">
+                  Manage listings
+                </p>
+              </div>
             </div>
 
-            <form
-              onSubmit={handleUpdate}
-              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+            <Link
+              to="/admin"
+              className="shrink-0 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-900 hover:bg-slate-100 transition-colors"
             >
-              {/* Title */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Title
-                </label>
-
-                <input
-                  type="text"
-                  name="title"
-                  value={editingCar.title}
-                  onChange={handleEditChange}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2"
-                  required
-                />
-              </div>
-
-              {/* Make */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Make
-                </label>
-
-                <input
-                  type="text"
-                  name="make"
-                  value={editingCar.make}
-                  onChange={handleEditChange}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2"
-                />
-              </div>
-
-              {/* Model */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Model
-                </label>
-
-                <input
-                  type="text"
-                  name="model"
-                  value={editingCar.model}
-                  onChange={handleEditChange}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2"
-                />
-              </div>
-
-              {/* Price */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Price
-                </label>
-
-                <input
-                  type="number"
-                  name="price"
-                  value={editingCar.price}
-                  onChange={handleEditChange}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2"
-                  required
-                />
-              </div>
-
-              {/* Year */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Year
-                </label>
-
-                <input
-                  type="number"
-                  name="year"
-                  value={editingCar.year}
-                  onChange={handleEditChange}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2"
-                />
-              </div>
-
-              {/* Vehicle Type */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Vehicle Type
-                </label>
-
-                <input
-                  type="text"
-                  name="vehicalType"
-                  value={editingCar.vehicalType}
-                  onChange={handleEditChange}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2"
-                />
-              </div>
-
-              {/* City */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  City
-                </label>
-
-                <input
-                  type="text"
-                  name="city"
-                  value={editingCar.city}
-                  onChange={handleEditChange}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2"
-                />
-              </div>
-
-              {/* Buttons */}
-              <div className="md:col-span-2 flex gap-3 mt-3">
-                <button
-                  type="submit"
-                  disabled={saving}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg disabled:opacity-50"
-                >
-                  {saving ? "Saving..." : "Save Changes"}
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setEditingCar(null)}
-                  className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-5 py-2 rounded-lg"
-                >
-                  Cancel
-                </button>
-              </div>
-            </form>
+              Open Admin Panel
+            </Link>
           </div>
         )}
 
-        {/* =========================
-            CAR GRID
-        ========================= */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {listings.map((item) => (
+        {isLoading && (
+          <p className="text-gray-500 text-sm mb-4">Loading listings...</p>
+        )}
+
+        {errorMessage && (
+          <div className="bg-red-100 text-red-700 p-3 rounded-lg mb-5">
+            {errorMessage}
+          </div>
+        )}
+
+        {/* ALl Cars Here */}
+        <div className="flex flex-wrap gap-6">
+          {cars.map((car) => (
             <div
-              key={item.id}
-              className="bg-white border border-gray-200 rounded-lg p-4 flex flex-col text-center hover:shadow-lg transition-shadow duration-200"
+              key={car.id}
+              className="bg-white border border-gray-200 rounded-lg p-4 flex flex-col text-center
+                         hover:shadow-lg transition-shadow duration-200
+                         w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)]"
             >
               <img
-                src={item.image}
-                alt={item.name}
+                src={car.image}
+                alt={car.name}
                 className="w-full h-36 object-contain mb-4"
                 onError={(e) => {
                   e.currentTarget.src =
@@ -416,28 +159,27 @@ export default function ListingGrid({
               />
 
               <h3 className="text-blue-900 font-semibold text-base mb-1">
-                {item.name}
+                {car.name}
               </h3>
-
               <p className="text-green-600 font-medium text-sm mb-4">
-                {item.price}
+                {car.price}
               </p>
 
-              {/* ACTION BUTTONS */}
               <div className="flex gap-2 mt-auto">
-                <button
-                  onClick={() => handleEdit(item)}
-                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-sm py-2 rounded-lg"
+
+                <Link
+                  to={`/car/edit/${car.id}`}
+                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-sm py-2 rounded-lg text-center"
                 >
                   Edit
-                </button>
+                </Link>
 
                 <button
-                  onClick={() => handleDelete(item.id)}
-                  disabled={deletingId === item.id}
+                  onClick={() => handleDelete(car.id)}
+                  disabled={deletingCarId === car.id}
                   className="flex-1 bg-red-600 hover:bg-red-700 text-white text-sm py-2 rounded-lg disabled:opacity-50"
                 >
-                  {deletingId === item.id ? "Deleting..." : "Delete"}
+                  {deletingCarId === car.id ? "Deleting..." : "Delete"}
                 </button>
               </div>
             </div>

@@ -33,20 +33,31 @@ import CarAution from "./Pages/PakOffers/CarAution"
 import DetailPassingToChild from "./Pages/NewCars/PopularCars/DetailPassingToChild"
 import DetailsPassing from './Pages/NewCars/UpCommingCars/DetailsPassing'
 
+// Admin section
+import Admin from "./Component/Admin"
+
+// Edit cars
+import AuthEditCars from './Component/AuthEditCars'
+
+
 function App() {
   return (
     <div>
       <BrowserRouter>
-       
 
        <Routes>
         
         <Route path='/' element={<Home/>}></Route>
 
+{/* admin Path */}
+        <Route path='/admin' element={<Admin/>}></Route>        
+
 {/* Sell bike and cars */}
         <Route path="/car/create" element={<SellCarSection/>}> </Route>
         <Route path='/bike/create' element={<SellBike/>}></Route>
 
+{/* Auth editing cars */}
+        <Route path='/car/edit/:id' element={<AuthEditCars/>}></Route>
 
 {/* Search here (filter) */}
         <Route path="/search" element={<SearchBar />} />
