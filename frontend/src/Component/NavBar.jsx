@@ -98,8 +98,7 @@ function NavBar() {
     setIsAuthOpen(true);
   };
 
-  return (
-    // Full div that cover whole body
+  return (    // Full div that cover whole body
     <div className="bg-linear-to-b from-black via-[#001330] to-[#012b72] text-white min-h-fit lg:h-128">
       {/* this div cover internal things and aligen them in center */}
       <div className="max-w-292.5 mx-auto px-4 sm:px-6 lg:px-8">
@@ -123,7 +122,7 @@ function NavBar() {
                 <path d="M12 18h.01" />
               </svg>
             </div>
-            <p className="mt-1 ml-1">Download App with SMS</p>
+            <p className="animate-scale mt-1 ml-1">Download App with SMS</p>
           </div>
 
           {/* Both Buttons Signup/Signin OR Logout */}
@@ -171,12 +170,26 @@ function NavBar() {
         </div>
         {/* Signin and Signup things */}
         {/* Auth here the signin and up popup */}
-        <AuthModal
-          isOpen={isAuthOpen}
-          authmode={authmode}
-          onClose={() => setIsAuthOpen(false)}
-        />
-        {/*  */}
+          {/* Full-screen backdrop */}
+
+  {/* Sliding modal panel */}
+  <div
+    className={`fixed top-0  right-0  z-50 h-full w-full max-w-full transform transition-all duration-300 ease-in-out ${
+      isAuthOpen
+        ? "translate-y-0 opacity-100 "
+        : "translate-y-full opacity-0 "
+    }`}>
+
+    <AuthModal
+      isOpen={isAuthOpen}
+      authmode={authmode}
+      onClose={() => setIsAuthOpen(false)}/>
+
+  </div>
+        {/* Auth ends here */}
+
+
+{/* whole Signin and Signup ends here */}
 
         <hr className="text-gray-600 my-2" />
 
@@ -263,7 +276,7 @@ function NavBar() {
             )}
           </div>
 
-          {/* Hamburger button - only visible on small/medium screens, right side */}
+  {/* Hamburger button - only visible on small/medium screens, right side */}
           <button
             className="lg:hidden ml-auto p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -293,12 +306,12 @@ function NavBar() {
         {mobileMenuOpen && (
           <div className="lg:hidden flex flex-col mt-2 gap-1">
             <Link
-              className="flex items-center h-12 px-4 hover:bg-white hover:text-red-600 transition-colors duration-650"
+              className="flex items-center h-12 px-4 hover:bg-white  hover:text-red-600 transition-colors duration-650"
               to={"/usedcars"}
               onClick={() => setMobileMenuOpen(false)}
             >
               Used Cars
-            </Link>
+            </Link> 
 
             <Link
               className="flex items-center h-12 px-4 hover:bg-white hover:text-red-600 transition-colors duration-650"
@@ -369,14 +382,15 @@ function NavBar() {
           </div>
         )}
 
-        {/* Heading hero here */}
+{/* Heading hero here */}
+{/* main heading and search start here */}
 
         <div className="flex flex-col justify-center items-center mt-12 sm:mt-20 lg:mt-32 text-center text-white px-4">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">
+          <h1 className="animate-wiggle text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">
             Find Used Cars in Pakistan
           </h1>
 
-          <p className="text-sm sm:text-base md:text-lg font-light text-gray-200 mt-2">
+          <p className=" animate-ltr text-sm sm:text-base md:text-lg font-light text-gray-200 mt-2">
             With thousands of cars, we have just the right one for you
           </p>
         </div>
@@ -512,8 +526,9 @@ function NavBar() {
             </button>
           </form>
         </div>
+{/* main heading and search ends here */}
 
-        <div className="w-full mt-6 flex justify-center pb-4">
+        <div className="animate-scale w-full mt-6 flex justify-center pb-4">
           <div className="border flex gap-2 p-1 px-8 text-sm cursor-pointer">
             Find More
             <img

@@ -70,32 +70,32 @@ function UsedCars() {
         {activeTab === "category" && (
           <div className='flex flex-wrap gap-4 sm:gap-6 justify-center sm:justify-start py-4'>
 
-            <Link className='w-[45%] sm:w-[30%] md:w-[22%] lg:w-[15%] bg-white shadow hover:shadow-lg transition-shadow p-4 flex flex-col items-center justify-center rounded text-gray-700 text-center gap-2'>
+            <Link className=' w-[45%] sm:w-[30%] md:w-[22%] lg:w-[15%] hover:bg-blue-300 hover:scale-110 bg-white shadow shadow-blue-600 hover:shadow-lg transition-all duration-750 p-4 flex flex-col items-center justify-center rounded text-gray-700 text-center gap-2'>
               <img className='h-12 object-contain' src="https://wsa3.pakwheels.com/assets/browse-more/car-ctg-electric-7e1bd16bad3457cf7e05e47daa8e5a25acb81bb479c77f525eb2698a30db0d54.svg" alt="Electric Car" />
               <h4 className='text-sm font-medium'>Electric Car</h4>
             </Link>
 
-            <Link className='w-[45%] sm:w-[30%] md:w-[22%] lg:w-[15%] bg-white shadow hover:shadow-lg transition-shadow p-4 flex flex-col items-center justify-center rounded text-gray-700 text-center gap-2'>
+            <Link className='w-[45%] sm:w-[30%] md:w-[22%] lg:w-[15%] hover:bg-blue-300 hover:scale-110 bg-white shadow shadow-blue-600 hover:shadow-2xl transition-all duration-750 p-4 flex flex-col items-center justify-center rounded text-gray-700 text-center gap-2'>
               <img className='h-12 object-contain' src="https://wsa4.pakwheels.com/assets/browse-more/car-ctg-luxury-31f36e7f32099f56af888a6b1a7a539d563c40c2cec0b9e5d4965e0461fd7e64.svg" alt="Sports Car" />
               <h4 className='text-sm font-medium'>Sports Car</h4>
             </Link>
 
-            <Link className='w-[45%] sm:w-[30%] md:w-[22%] lg:w-[15%] bg-white shadow hover:shadow-lg transition-shadow p-4 flex flex-col items-center justify-center rounded text-gray-700 text-center gap-2'>
+            <Link className='w-[45%] sm:w-[30%] md:w-[22%] lg:w-[15%] hover:scale-110 hover:bg-blue-300 bg-white shadow shadow-blue-600 hover:shadow-lg transition-all duration-750 p-4 flex flex-col items-center justify-center rounded text-gray-700 text-center gap-2'>
               <img className='h-12 object-contain' src="https://wsa4.pakwheels.com/assets/browse-more/car-ctg-luxury-31f36e7f32099f56af888a6b1a7a539d563c40c2cec0b9e5d4965e0461fd7e64.svg" alt="Luxury Car" />
               <h4 className='text-sm font-medium'>Luxury Car</h4>
             </Link>
 
-            <Link to="/oldcars" className='w-[45%] sm:w-[30%] md:w-[22%] lg:w-[15%] bg-white shadow hover:shadow-lg transition-shadow p-4 flex flex-col items-center justify-center rounded text-gray-700 text-center gap-2'>
+            <Link to="/oldcars" className='w-[45%] sm:w-[30%] md:w-[22%] lg:w-[15%] hover:scale-110 hover:bg-blue-300 bg-white shadow shadow-blue-600 hover:shadow-lg transition-all duration-750 p-4 flex flex-col items-center justify-center rounded text-gray-700 text-center gap-2'>
               <img className='h-12 object-contain' src="https://wsa4.pakwheels.com/assets/browse-more/car-ctg-old-371bf5ee8fa9a89212cda1806690bdb1d48ba4e264704841baa31967ee2d60fa.svg" alt="Old Cars" />
               <h4 className='text-sm font-medium'>Old Cars</h4>
             </Link>
 
-            <Link className='w-[45%] sm:w-[30%] md:w-[22%] lg:w-[15%] bg-white shadow hover:shadow-lg transition-shadow p-4 flex flex-col items-center justify-center rounded text-gray-700 text-center gap-2'>
+            <Link className='w-[45%] sm:w-[30%] md:w-[22%] lg:w-[15%] hover:scale-110 hover:bg-blue-300 bg-white shadow shadow-blue-600 hover:shadow-lg transition-all duration-750 p-4 flex flex-col items-center justify-center rounded text-gray-700 text-center gap-2'>
               <img className='h-12 object-contain' src="https://wsa4.pakwheels.com/assets/browse-more/car-ctg-luxury-31f36e7f32099f56af888a6b1a7a539d563c40c2cec0b9e5d4965e0461fd7e64.svg" alt="Japan Cars" />
               <h4 className='text-sm font-medium'>Japan Cars</h4>
             </Link>
 
-            <Link className='w-[45%] sm:w-[30%] md:w-[22%] lg:w-[15%] bg-white shadow hover:shadow-lg transition-shadow p-4 flex flex-col items-center justify-center rounded text-gray-700 text-center gap-2'>
+            <Link className='w-[45%] sm:w-[30%] md:w-[22%] lg:w-[15%] hover:scale-110 hover:bg-blue-300 bg-white shadow shadow-blue-600 hover:shadow-lg transition-all duration-750 p-4 flex flex-col items-center justify-center rounded text-gray-700 text-center gap-2'>
               <img className='h-12 object-contain' src="https://wsa4.pakwheels.com/assets/browse-more/car-ctg-old-371bf5ee8fa9a89212cda1806690bdb1d48ba4e264704841baa31967ee2d60fa.svg" alt="Small Cars" />
               <h4 className='text-sm font-medium'>Small Cars</h4>
             </Link>
@@ -123,53 +123,53 @@ function UsedCars() {
         {activeTab === "make" && (
           <div className='flex flex-wrap gap-4 sm:gap-6 justify-center sm:justify-start py-4'>
 
-            <Link to="/make?make=mercedes" className="group flex flex-col items-center justify-center w-[45%] sm:w-[30%] md:w-[22%] lg:w-[13%] h-28 bg-white border border-gray-200 rounded-md shadow-sm hover:shadow-md hover:border-gray-500 transition-all p-2">
+            <Link to="/make?make=mercedes" className="group  flex flex-col items-center justify-center w-[45%] sm:w-[30%] md:w-[22%] lg:w-[13%] h-28 bg-white border border-gray-200 rounded-md shadow shadow-blue-600  hover:shadow-lg hover:border-gray-500 transition-all duration-750 p-2">
               <div className="h-16 w-full flex items-center justify-center">
-                <img className="max-h-12 max-w-full group-hover:scale-110 transition-transform duration-200" src="https://cache2.pakwheels.com/system/car_manufacturers/manufacturers/000/000/027/resized/mercedes.png" alt="Mercedes" />
+                <img className="max-h-12 max-w-full group-hover:scale-120 transition-transform duration-700" src="https://cache2.pakwheels.com/system/car_manufacturers/manufacturers/000/000/027/resized/mercedes.png" alt="Mercedes" />
               </div>
-              <span className="text-xs font-semibold text-gray-700 capitalize">Mercedes</span>
+              <span className="group-hover:scale-110 group-hover:text-gray-800 transition-all duration-750 text-xs font-semibold text-gray-700 capitalize">Mercedes</span>
             </Link>
 
-            <Link to="/make?make=Suzuki" className="group flex flex-col items-center justify-center w-[45%] sm:w-[30%] md:w-[22%] lg:w-[13%] h-28 bg-white border border-gray-200 rounded-md shadow-sm hover:shadow-md hover:border-gray-500 transition-all p-2">
+            <Link to="/make?make=Suzuki" className="group flex flex-col items-center justify-center w-[45%] sm:w-[30%] md:w-[22%] lg:w-[13%] h-28 bg-white border border-gray-200 rounded-md shadow shadow-blue-600  hover:shadow-lg hover:border-gray-500 transition-all duration-750 p-2">
               <div className="h-16 w-full flex items-center justify-center">
-                <img className="max-h-12 max-w-full group-hover:scale-110 transition-transform duration-200" src="https://cache3.pakwheels.com/system/car_manufacturers/manufacturers/000/000/041/resized/Suzuki.png" alt="Suzuki" />
+                <img className="max-h-12 max-w-full group-hover:scale-120 transition-transform duration-700" src="https://cache3.pakwheels.com/system/car_manufacturers/manufacturers/000/000/041/resized/Suzuki.png" alt="Suzuki" />
               </div>
-              <span className="text-xs font-semibold text-gray-700 capitalize">Suzuki</span>
+              <span className="group-hover:scale-110 transition-all duration-750 text-xs font-semibold text-gray-700 capitalize">Suzuki</span>
             </Link>
 
-            <Link to="/make?make=toyota" className="group flex flex-col items-center justify-center w-[45%] sm:w-[30%] md:w-[22%] lg:w-[13%] h-28 bg-white border border-gray-200 rounded-md shadow-sm hover:shadow-md hover:border-gray-500 transition-all p-2">
+            <Link to="/make?make=toyota" className="group flex flex-col items-center justify-center w-[45%] sm:w-[30%] md:w-[22%] lg:w-[13%] h-28 bg-white border border-gray-200 rounded-md shadow shadow-blue-600  hover:shadow-lg hover:border-gray-500 transition-all duration-750 p-2">
               <div className="h-16 w-full flex items-center justify-center">
-                <img className="max-h-12 max-w-full group-hover:scale-110 transition-transform duration-200" src="https://cache4.pakwheels.com/system/car_manufacturers/manufacturers/000/000/042/resized/Tyota.png" alt="Toyota" />
+                <img className="max-h-12 max-w-full group-hover:scale-120 transition-transform duration-700" src="https://cache4.pakwheels.com/system/car_manufacturers/manufacturers/000/000/042/resized/Tyota.png" alt="Toyota" />
               </div>
-              <span className="text-xs font-semibold text-gray-700 capitalize">Toyota</span>
+              <span className="group-hover:scale-110 transition-all duration-750 text-xs font-semibold text-gray-700 capitalize">Toyota</span>
             </Link>
 
-            <Link to="/make?make=honda" className="group flex flex-col items-center justify-center w-[45%] sm:w-[30%] md:w-[22%] lg:w-[13%] h-28 bg-white border border-gray-200 rounded-md shadow-sm hover:shadow-md hover:border-gray-500 transition-all p-2">
+            <Link to="/make?make=honda" className="group flex flex-col items-center justify-center w-[45%] sm:w-[30%] md:w-[22%] lg:w-[13%] h-28 bg-white border border-gray-200 rounded-md shadow shadow-blue-600  hover:shadow-lg hover:border-gray-500 transition-all duration-750 p-2">
               <div className="h-16 w-full flex items-center justify-center">
-                <img className="max-h-12 max-w-full group-hover:scale-110 transition-transform duration-200" src="https://cache2.pakwheels.com/system/car_manufacturers/manufacturers/000/000/014/resized/Honda.png" alt="Honda" />
+                <img className="max-h-12 max-w-full group-hover:scale-120 transition-transform duration-700" src="https://cache2.pakwheels.com/system/car_manufacturers/manufacturers/000/000/014/resized/Honda.png" alt="Honda" />
               </div>
-              <span className="text-xs font-semibold text-gray-700 capitalize">Honda</span>
+              <span className="group-hover:scale-110 transition-all duration-750 text-xs font-semibold text-gray-700 capitalize">Honda</span>
             </Link>
 
-            <Link to="/make?make=daihatsu" className="group flex flex-col items-center justify-center w-[45%] sm:w-[30%] md:w-[22%] lg:w-[13%] h-28 bg-white border border-gray-200 rounded-md shadow-sm hover:shadow-md hover:border-gray-500 transition-all p-2">
+            <Link to="/make?make=daihatsu" className="group flex flex-col items-center justify-center w-[45%] sm:w-[30%] md:w-[22%] lg:w-[13%] h-28 bg-white border border-gray-200 rounded-md shadow shadow-blue-600  hover:shadow-lg hover:border-gray-500 transition-all duration-750 p-2">
               <div className="h-16 w-full flex items-center justify-center">
-                <img className="max-h-12 max-w-full group-hover:scale-110 transition-transform duration-200" src="https://cache1.pakwheels.com/system/car_manufacturers/manufacturers/000/000/008/resized/daihatsu.png" alt="Daihatsu" />
+                <img className="max-h-12 max-w-full group-hover:scale-120 transition-transform duration-700" src="https://cache1.pakwheels.com/system/car_manufacturers/manufacturers/000/000/008/resized/daihatsu.png" alt="Daihatsu" />
               </div>
-              <span className="text-xs font-semibold text-gray-700 capitalize">Daihatsu</span>
+              <span className="group-hover:scale-110 transition-all duration-750 text-xs font-semibold text-gray-700 capitalize">Daihatsu</span>
             </Link>
 
-            <Link to="/make?make=Nisan" className="group flex flex-col items-center justify-center w-[45%] sm:w-[30%] md:w-[22%] lg:w-[13%] h-28 bg-white border border-gray-200 rounded-md shadow-sm hover:shadow-md hover:border-gray-500 transition-all p-2">
+            <Link to="/make?make=Nisan" className="group flex flex-col items-center justify-center w-[45%] sm:w-[30%] md:w-[22%] lg:w-[13%] h-28 bg-white border border-gray-200 rounded-md shadow shadow-blue-600  hover:shadow-lg hover:border-gray-500 transition-all duration-750 p-2">
               <div className="h-16 w-full flex items-center justify-center">
-                <img className="max-h-12 max-w-full group-hover:scale-110 transition-transform duration-200" src="https://cache1.pakwheels.com/system/car_manufacturers/manufacturers/000/000/030/resized/Nisan.png" alt="Nissan" />
+                <img className="max-h-12 max-w-full group-hover:scale-120 transition-transform duration-700" src="https://cache1.pakwheels.com/system/car_manufacturers/manufacturers/000/000/030/resized/Nisan.png" alt="Nissan" />
               </div>
-              <span className="text-xs font-semibold text-gray-700 capitalize">Nissan</span>
+              <span className="group-hover:scale-110 transition-all duration-750 text-xs font-semibold text-gray-700 capitalize">Nissan</span>
             </Link>
 
-            <Link to="/make?make=Changan" className="group flex flex-col items-center justify-center w-[45%] sm:w-[30%] md:w-[22%] lg:w-[13%] h-28 bg-white border border-gray-200 rounded-md shadow-sm hover:shadow-md hover:border-gray-500 transition-all p-2">
+            <Link to="/make?make=Changan" className="group flex flex-col items-center justify-center w-[45%] sm:w-[30%] md:w-[22%] lg:w-[13%] h-28 bg-white border border-gray-200 rounded-md shadow shadow-blue-600  hover:shadow-lg hover:border-gray-500 transition-all duration-750 p-2">
               <div className="h-16 w-full flex items-center justify-center">
-                <img className="max-h-12 max-w-full group-hover:scale-110 transition-transform duration-200" src="https://cache1.pakwheels.com/system/car_manufacturers/manufacturers/000/000/068/resized/4.png" alt="Changan" />
+                <img className="max-h-12 max-w-full group-hover:scale-120 transition-transform duration-700" src="https://cache1.pakwheels.com/system/car_manufacturers/manufacturers/000/000/068/resized/4.png" alt="Changan" />
               </div>
-              <span className="text-xs font-semibold text-gray-700 capitalize">Changan</span>
+              <span className="group-hover:scale-110 transition-all duration-750 text-xs font-semibold text-gray-700 capitalize">Changan</span>
             </Link>
 
           </div>

@@ -23,26 +23,26 @@ function PakOffers() {
             
             {/* First */}
             
-                <Link to={"/pakoffers/sellcar"} className='group flex w-full m-4 sm:flex-[40%]  border border-gray-400 rounded-sm p-6 mb-4'>
+                <Link to={"/pakoffers/sellcar"} className='hover:bg-blue-300 transition-all duration-650 group flex w-full m-4 sm:flex-[40%]  border border-gray-400 rounded-sm p-6 mb-4'>
                 <img className='h-20 w-30 pr-4' src={sellimage} alt="Sell pics" />
                 <div>
-                    <h3 className='text-blue-900 group-hover:text-blue-700 font-semibold'>PakWheels </h3>
+                    <h3 className='text-blue-900  font-semibold'>PakWheels </h3>
                     <h4 className='text-gray-500 font-semibold'>SELL IT FOR ME</h4>
                 </div>
                 </Link>
             
 
             {/* Second  Offer*/}
-                <Link to={"/pakoffers/carsaution"} className='group mb-4 flex w-full m-4 sm:flex-[40%] border border-gray-400 rounded-sm p-6 lg:ml-4'>
+                <Link to={"/pakoffers/carsaution"} className='group hover:bg-blue-300 transition-all duration-650 mb-4 flex w-full m-4 sm:flex-[40%] border border-gray-400 rounded-sm p-6 lg:ml-4'>
                 <img className='h-20 w-30 pr-4' src={download07} alt="car image" />
                 <div>
-                    <h3 className='text-blue-900 group-hover:text-blue-700  font-semibold'>PakWheels </h3>
-                    <h4 className='text-gray-500 font-semibold'>AUCTION SHEET VERIFICATION</h4>
+                    <h3 className='text-blue-900  font-semibold'>PakWheels </h3>
+                    <h4 className='text-gray-500  font-semibold'>AUCTION SHEET VERIFICATION</h4>
                 </div>
                 </Link>
 
             {/*Third  Offer  */}
-                <Link to={"/pakoffers/carinspection"} className='group mb-4 flex w-full m-4 sm:flex-[40%] border border-gray-400 rounded-sm p-6 '>
+                <Link to={"/pakoffers/carinspection"} className='group hover:bg-blue-300 transition-all duration-650 mb-4 flex w-full m-4 sm:flex-[40%] border border-gray-400 rounded-sm p-6 '>
                 <img className='h-20 w-30 pr-4' src={download06} alt="image of car" />
                 <div>
                     <h3 className='text-blue-900 group-hover:text-blue-700  font-semibold'>PakWheels </h3>
@@ -51,7 +51,7 @@ function PakOffers() {
                 </Link>
 
             {/* Fourth offer */}
-                <Link to={"/pakoffers/carservice"} className='group mb-4 flex w-full m-4 sm:flex-[40%] border border-gray-400 rounded-sm p-6 ml-4'>
+                <Link to={"/pakoffers/carservice"} className='group hover:bg-blue-300 transition-all duration-650 mb-4 flex w-full m-4 sm:flex-[40%] border border-gray-400 rounded-sm p-6 ml-4'>
                 <img className='h-20 w-30 pr-4' src={download02} alt="car image" />
                 <div>
                     <h3 className='text-blue-900  group-hover:text-blue-700 font-semibold'>PakWheels </h3>
@@ -60,7 +60,7 @@ function PakOffers() {
                 </Link>
 
             {/* Fifth Offer*/}
-                <Link to={"/pakoffers/insurance"} className='group mb-4 flex w-full m-4 sm:flex-[40%] border border-gray-400 rounded-sm p-6 '>
+                <Link to={"/pakoffers/insurance"} className='group hover:bg-blue-300 transition-all duration-650 mb-4 flex w-full m-4 sm:flex-[40%] border border-gray-400 rounded-sm p-6 '>
                 <img className='h-20 w-30 pr-4' src={download03} alt="car Image" />
                 <div>
                     <h3 className='text-blue-900  group-hover:text-blue-700 font-semibold'>PakWheels </h3>
@@ -69,7 +69,7 @@ function PakOffers() {
                 </Link>
 
             {/* Sixth Offer */}
-                <Link to={"/pakoffers/cartransfer"} className='group mb-4 flex w-full m-4 sm:flex-[40%] border border-gray-400 rounded-sm p-6 ml-4'>
+                <Link to={"/pakoffers/cartransfer"} className='group hover:bg-blue-300 transition-all duration-650 mb-4 flex w-full m-4 sm:flex-[40%] border border-gray-400 rounded-sm p-6 ml-4'>
                 <img className='h-20 w-30 pr-4' src={download04} alt="car image ownership" />
                 <div>
                     <h3 className='text-blue-900  group-hover:text-blue-700 font-semibold'>PakWheels </h3>

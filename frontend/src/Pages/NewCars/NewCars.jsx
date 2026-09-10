@@ -54,20 +54,20 @@ function NewCars() {
             {popularCars.map((item) => (
               <div
                 key={item.car}
-                className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2"
+                className=" w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2"
               >
-                <div className="group h-full bg-white rounded-xl p-4 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between items-center text-center transform hover:-translate-y-1">
+                <div className="group hover:scale-105 h-full bg-white rounded-xl p-4 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-700 flex flex-col justify-between items-center text-center transform hover:-translate-y-1">
                   {/* Image Container */}
                   <div className="w-full h-32 flex items-center justify-center overflow-hidden rounded-lg bg-gray-50 p-2">
                     <img
                       src={item.herf}
                       alt={item.name}
-                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                   {/* Details Container */}
                   <div className="mt-1 w-full space-y-1">
-                    <h4 className="font-bold text-gray-800 text-lg group-hover:text-blue-600 transition-colors">
+                    <h4 className="font-bold text-gray-800 text-lg group-hover:text-blue-600 transition-all duration-750">
                       {item.name}
                     </h4>
                     <div className="bg-gray-50 rounded-lg p-2 mt-2 border border-gray-100">
@@ -97,10 +97,10 @@ function NewCars() {
     {upCommingCars.map((item) => (
       <div
         key={item.car}
-        className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1rem)] flex flex-col items-center justify-between bg-white p-4 border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200"
+        className="hover:scale-105 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1rem)] flex flex-col items-center justify-between bg-white p-4 border border-gray-100 rounded-lg shadow-sm hover:shadow-blue-500 hover:shadow-lg transition-all duration-700"
       >
         {/* Car Image */}
-        <div className="w-full h-36 flex items-center justify-center mb-3">
+        <div className=" w-full h-36 flex items-center justify-center mb-3">
           <img
             src={item.herf}
             alt={item.name}
