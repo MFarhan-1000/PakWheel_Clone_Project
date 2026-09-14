@@ -6,6 +6,13 @@ import playstore from "../assets/1492616988-12-play-store-google-android-game-se
 import appstore from "../assets/Appstore.jpg"
 import AppGallary from "../assets/app.png"
 
+// Social media
+import Twitter from "../assets/twitter.png"
+import facebook from "../assets/images.jpg"
+import Youtube from "../assets/youtube(2).jpg"
+
+
+
 
 
 const Footer = () => {
@@ -232,8 +239,8 @@ const Footer = () => {
           <div className="flex items-center gap-3">
             <Link>
               <img
-                className="w-8 h-8  rounded-full bg-[#1b2028] hover:bg-[#ff0000] text-gray-300 hover:text-white flex items-center justify-center "
-                src="/src/assets/youtube(2).jpg"
+                className="w-9 h-8  rounded-full bg-[#1b2028] hover:bg-[#ff0000] text-gray-300 hover:text-white flex items-center justify-center "
+                src={Youtube}
                 alt="Youtube"
               />
             </Link>
@@ -241,7 +248,7 @@ const Footer = () => {
             <Link>
               <img
                 className="w-8 h-8 rounded-full bg-[#1b2028] hover:bg-[#ff0000] text-gray-300 hover:text-white flex items-center justify-center "
-                src="/src/assets/images.jpg"
+                src={facebook}
                 alt="Facebook"
               />
             </Link>
@@ -249,7 +256,7 @@ const Footer = () => {
             <Link>
               <img
                 className="w-8 h-8 rounded-full bg-[#1b2028] hover:bg-[#ff0000] text-gray-300 hover:text-white flex items-center justify-center "
-                src="/src/assets/twitter.png"
+                src={Twitter}
                 alt="Twitter"
               />
             </Link>
@@ -257,7 +264,7 @@ const Footer = () => {
             <Link>
               <img
                 className="w-8 h-8"
-                src="/src/assets/1492616988-12-play-store-google-android-game-service-marketplace_83394.webp"
+                src={playstore}
                 alt="Playstore"
               />
             </Link>

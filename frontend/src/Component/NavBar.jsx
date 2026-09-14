@@ -528,7 +528,7 @@ function NavBar() {
         </div>
 {/* main heading and search ends here */}
 
-        <div className="animate-scale w-full mt-6 flex justify-center pb-4">
+        <div className="animate-scale hover:[animation-play-state:paused] w-full mt-6 flex justify-center pb-4">
           <div className="border flex gap-2 p-1 px-8 text-sm cursor-pointer">
             Find More
             <img

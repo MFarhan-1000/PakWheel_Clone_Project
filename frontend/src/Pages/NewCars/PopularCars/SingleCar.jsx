@@ -24,7 +24,7 @@ const SingleCar = ({ carData }) => {
       </h1>
 
       {/* Main Container */}
-      <div className="bg-white rounded-xl border border-gray-200 shadow-md overflow-hidden">
+      <div className=" bg-white rounded-xl border border-gray-200 shadow-md overflow-hidden">
         
         {/* Top Section: Price & Image (Flex Layout) */}
         <div className="flex flex-col md:flex-row items-center justify-between p-6 gap-6">

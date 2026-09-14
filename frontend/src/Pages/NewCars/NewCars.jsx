@@ -11,7 +11,7 @@ function NewCars() {
     <div className="bg-gray-300">
       <section className="max-w-5xl m-auto h-auto p-6 ">
         <div>
-          <h2 className="font-semibold text-2xl">Featured New Cars</h2>
+          <h2 className='text-2xl font-medium drop-shadow-[10px_10px_8px_rgba(30,64,170,0.9)]'>Featured New Cars</h2>
         </div>
 
         {/* Buttons Start here */}

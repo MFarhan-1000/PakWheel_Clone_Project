@@ -10,7 +10,7 @@ function UsedCars() {
 
         {/* Header Title */}
         <div className='mb-4 text-xl sm:text-2xl font-bold text-gray-800 text-center sm:text-left'>
-          <h1>Browse Used Cars</h1>
+          <h1 className='text-2xl font-medium drop-shadow-[10px_10px_8px_rgba(30,64,170,0.9)]'>Browse Used Cars</h1>
         </div>
 
         {/* Navigation Tabs */}
